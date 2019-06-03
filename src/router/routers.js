@@ -1,5 +1,4 @@
 import Main from '@/components/main'
-import parentView from '@/components/parent-view'
 
 /**
  * iview-admin中meta除了原生参数外可配置的参数:
@@ -51,13 +50,23 @@ export default [
     ]
   },
   {
-    path: '',
-    name: 'doc',
+    path: '/tyc',
+    name: 'tyc',
+    component: Main,
     meta: {
-      title: '文档',
-      href: 'https://lison16.github.io/iview-admin-doc/#/',
-      icon: 'ios-book'
-    }
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'tyc',
+        name: 'tyc',
+        meta: {
+          icon: 'md-planet',
+          title: '天眼查'
+        },
+        component: () => import('@/view/index.vue')
+      }
+    ]
   },
   {
     path: '/join',
@@ -218,35 +227,6 @@ export default [
     ]
   },
   {
-    path: '/update',
-    name: 'update',
-    meta: {
-      icon: 'md-cloud-upload',
-      title: '数据上传'
-    },
-    component: Main,
-    children: [
-      {
-        path: 'update_table_page',
-        name: 'update_table_page',
-        meta: {
-          icon: 'ios-document',
-          title: '上传Csv'
-        },
-        component: () => import('@/view/update/update-table.vue')
-      },
-      {
-        path: 'update_paste_page',
-        name: 'update_paste_page',
-        meta: {
-          icon: 'md-clipboard',
-          title: '粘贴表格数据'
-        },
-        component: () => import('@/view/update/update-paste.vue')
-      }
-    ]
-  },
-  {
     path: '/excel',
     name: 'excel',
     meta: {
@@ -369,66 +349,6 @@ export default [
           title: '指令'
         },
         component: () => import('@/view/directive/directive.vue')
-      }
-    ]
-  },
-  {
-    path: '/multilevel',
-    name: 'multilevel',
-    meta: {
-      icon: 'md-menu',
-      title: '多级菜单'
-    },
-    component: Main,
-    children: [
-      {
-        path: 'level_2_1',
-        name: 'level_2_1',
-        meta: {
-          icon: 'md-funnel',
-          title: '二级-1'
-        },
-        component: () => import('@/view/multilevel/level-2-1.vue')
-      },
-      {
-        path: 'level_2_2',
-        name: 'level_2_2',
-        meta: {
-          access: ['super_admin'],
-          icon: 'md-funnel',
-          showAlways: true,
-          title: '二级-2'
-        },
-        component: parentView,
-        children: [
-          {
-            path: 'level_2_2_1',
-            name: 'level_2_2_1',
-            meta: {
-              icon: 'md-funnel',
-              title: '三级'
-            },
-            component: () => import('@/view/multilevel/level-2-2/level-2-2-1.vue')
-          },
-          {
-            path: 'level_2_2_2',
-            name: 'level_2_2_2',
-            meta: {
-              icon: 'md-funnel',
-              title: '三级'
-            },
-            component: () => import('@/view/multilevel/level-2-2/level-2-2-2.vue')
-          }
-        ]
-      },
-      {
-        path: 'level_2_3',
-        name: 'level_2_3',
-        meta: {
-          icon: 'md-funnel',
-          title: '二级-3'
-        },
-        component: () => import('@/view/multilevel/level-2-3.vue')
       }
     ]
   },

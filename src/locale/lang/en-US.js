@@ -1,6 +1,7 @@
 export default {
   home: 'Home',
   login: 'Login',
+  tyc: 'Tianyancha',
   components: 'Components',
   count_to_page: 'Count-to',
   tables_page: 'Table',
@@ -14,7 +15,6 @@ export default {
   join_page: 'QQ Group',
   update_table_page: 'Update .CSV',
   update_paste_page: 'Paste Table Data',
-  multilevel: 'multilevel',
   directive_page: 'Directive',
   level_1: 'Level-1',
   level_2: 'Level-2',
